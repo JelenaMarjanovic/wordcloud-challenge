@@ -1,0 +1,103 @@
+@import './tokens.css';
+
+/* Base reset-ish */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    Ubuntu,
+    Cantarell,
+    'Noto Sans',
+    Arial,
+    'Apple Color Emoji',
+    'Segoe UI Emoji';
+  font-size: var(--font-2);
+  line-height: 1.5;
+}
+
+/* Layout primitives */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: var(--space-4);
+}
+
+.layout {
+  display: flex;
+  gap: var(--space-5);
+}
+
+.main {
+  flex: 2;
+}
+
+.aside {
+  flex: 1;
+  border-left: 1px solid var(--border);
+  padding-left: var(--space-4);
+  min-height: 520px;
+}
+
+/* Responsive stack on tablet/phone */
+@media (max-width: var(--bp-md)) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .aside {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    padding-left: 0;
+    padding-top: var(--space-4);
+  }
+}
+
+/* Wordcloud area placeholder height */
+.wordcloud {
+  width: 100%;
+  height: 520px;
+}
+
+@media (max-width: var(--bp-sm)) {
+  .wordcloud {
+    height: 380px;
+  }
+}
+
+/* Utilities */
+.text-muted {
+  color: var(--muted);
+}
+
+.text-error {
+  color: #b91c1c;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
