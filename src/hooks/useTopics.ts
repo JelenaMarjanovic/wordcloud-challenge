@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { Topic } from '../types/topics';
+import { normalizeTopics } from '../utils/normalizeTopics';
 
 export const useTopics = () => {
   const [topics, setTopics] = useState<Topic[]>([]);
@@ -15,24 +16,20 @@ export const useTopics = () => {
         }
 
         const payload = await res.json();
-
-        const data = Array.isArray(payload?.topics)
-          ? payload.topics
-          : Array.isArray(payload)
-            ? payload
-            : [];
+        const normalizedData = normalizeTopics(payload);
 
         if (
           import.meta.env.MODE !== 'production' &&
-          (!Array.isArray(data) ||
-            !data.every((item) => 'label' in item && 'volume' in item))
+          normalizedData.length === 0
         ) {
           console.warn('useTopics: unexpected topics.json shape', payload);
         }
 
-        setTopics(data);
+        setTopics(normalizedData);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Unknown error');
+        if ((err as Error).name !== 'AbortError') {
+          setError(err instanceof Error ? err.message : 'Unknown error');
+        }
       } finally {
         setLoading(false);
       }
