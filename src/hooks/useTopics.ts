@@ -8,9 +8,13 @@ export const useTopics = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    const controller = new AbortController();
+    const { signal } = controller;
+
     const loadTopics = async () => {
       try {
-        const res = await fetch('/topics.json');
+        const res = await fetch('/topics.json', { signal });
+
         if (!res.ok) {
           throw new Error('Failed to load topics');
         }
@@ -27,15 +31,19 @@ export const useTopics = () => {
 
         setTopics(normalizedData);
       } catch (err) {
-        if ((err as Error).name !== 'AbortError') {
-          setError(err instanceof Error ? err.message : 'Unknown error');
+        if (err instanceof DOMException && err.name === 'AbortError') {
+          return;
         }
+
+        setError(err instanceof Error ? err.message : 'Unknown error');
       } finally {
         setLoading(false);
       }
     };
 
     loadTopics();
+
+    return () => controller.abort();
   }, []);
 
   return { topics, loading, error };
