@@ -22,7 +22,7 @@ const TopicList = ({ topics, selectedId, onSelect }: TopicListProps) => {
               aria-pressed={pressed}
               onClick={() => onSelect(topic)}
             >
-              {topic.label} — {topic.volume}
+              {topic.label}
             </button>
           </li>
         );
