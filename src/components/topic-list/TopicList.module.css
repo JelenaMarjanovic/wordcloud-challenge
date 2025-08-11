@@ -30,3 +30,41 @@
   border-color: #1d4ed8;
   box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.15);
 }
+
+/* topic font sizes regarding sentiment */
+.size-0 {
+  font-size: var(--font-1);
+}
+
+.size-1 {
+  font-size: var(--font-2);
+}
+
+.size-2 {
+  font-size: var(--font-3);
+}
+
+.size-3 {
+  font-size: var(--font-4);
+}
+
+.size-4 {
+  font-size: var(--font-5);
+}
+
+.size-5 {
+  font-size: var(--font-6);
+}
+
+/* topic text colors regarding sentiment */
+.text-pos {
+  color: var(--pos);
+}
+
+.text-neu {
+  color: var(--neu);
+}
+
+.text-neg {
+  color: var(--neg);
+}
