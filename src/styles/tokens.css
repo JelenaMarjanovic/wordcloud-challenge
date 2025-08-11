@@ -1,0 +1,37 @@
+:root {
+  /* Colors */
+  --bg: #ffffff;
+  --fg: #1f2937; /* body text */
+  --muted: #6b7280; /* secondary text */
+  --border: #e5e7eb;
+
+  /* Sentiment colors */
+  --pos: #0b8a3e;
+  --neu: #6c757d;
+  --neg: #d9534f;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+
+  /* Typography scale */
+  --font-0: 12px;
+  --font-1: 14px;
+  --font-2: 16px;
+  --font-3: 20px;
+  --font-4: 28px;
+  --font-5: 40px;
+  --font-6: 56px;
+
+  /* Layout */
+  --container: 1200px;
+
+  /* Breakpoints */
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+}
