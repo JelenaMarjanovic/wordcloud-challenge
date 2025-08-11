@@ -10,9 +10,9 @@ export type SentimentBreakdown = {
   negativePct: number;
 };
 
-export function getSentimentBreakdown(
+export const getSentimentBreakdown = (
   topic?: Topic
-): SentimentBreakdown | null {
+): SentimentBreakdown | null => {
   if (!topic) {
     return null;
   }
@@ -39,4 +39,4 @@ export function getSentimentBreakdown(
     neutralPct: toPct(neutral),
     negativePct: toPct(negative)
   };
-}
+};
