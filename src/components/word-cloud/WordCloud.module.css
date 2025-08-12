@@ -1,0 +1,31 @@
+.wrapper {
+  width: 100%;
+  height: 520px;
+}
+
+@media (max-width: var(--bp-sm)) {
+  .wrapper {
+    height: 380px;
+  }
+}
+
+.word {
+  cursor: pointer;
+}
+
+.word:focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: 2px;
+}
+
+.sent-pos {
+  fill: var(--pos);
+}
+
+.sent-neu {
+  fill: var(--neu);
+}
+
+.sent-neg {
+  fill: var(--neg);
+}
