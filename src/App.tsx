@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTopics } from './hooks/useTopics';
 import type { Topic } from './types/topics';
-import TopicList from './components/topic-list/TopicList';
+import WordCloud from './components/word-cloud/WordCloud';
 import TopicPanel from './components/topic-panel/TopicPanel';
 
 export default function App() {
@@ -22,11 +22,7 @@ export default function App() {
 
       <div className="layout">
         <main className="main" id="cloud">
-          <TopicList
-            topics={topics}
-            selectedId={selected?.id ?? null}
-            onSelect={setSelected}
-          />
+          <WordCloud topics={topics} onSelect={setSelected} />
         </main>
 
         <aside className="aside" aria-label="Topic details">
