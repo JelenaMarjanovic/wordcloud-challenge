@@ -19,7 +19,6 @@ type LaidOutWord = WordCloudWord & {
   y: number;
   size: number;
   rotate: number;
-  text: string;
 };
 
 const sentimentClass = (score?: number) => {
